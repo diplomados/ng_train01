@@ -1,0 +1,51 @@
+<!doctype html>
+<html ng-app="app">
+<head>
+  <script src="angular.js"></script>
+</head>
+<body ng-controller="crud">
+
+  <input type="text" ng-model="nombre">
+  <hr>
+  <h1>Hello {{ nombre }}!</h1>
+  <a href="" ng-click="save()">Guardar</a>
+  
+  <ul>
+    <li ng-repeat="curso in cursos | filter:nombre">
+      {{curso.nombre}} {{curso.ano}}
+    </li>
+  </ul>
+
+</body>
+</html>
+
+<script type="text/javascript">
+/*
+crud = function($scope){
+  //$scope.nombre="Juan";
+
+  $scope.cursos=[
+  {'nombre':'AngularJS','ano':'2019'},
+  {'nombre':'Backbone','ano':'2015'},
+  {'nombre':'Ember','ano':'2016'},
+  ]
+
+  $scope.save = function(){
+    console.log("hola");
+  }
+
+}
+*/
+var mod=angular.module("app",[]);
+mod.controller("crud", function($scope){
+  $scope.cursos=[
+  {'nombre':'AngularJS','ano':'2019'},
+  {'nombre':'Backbone','ano':'2015'},
+  {'nombre':'Ember','ano':'2016'},
+  ]
+
+  $scope.save = function(){
+    console.log("hola");
+  }
+});
+</script>
